@@ -7,10 +7,11 @@ import com.example.administrator.newsdemo.R;
 import com.example.administrator.newsdemo.base.BaseActivity;
 import com.example.administrator.newsdemo.base.BasePresenter;
 import com.example.administrator.newsdemo.presenter.MainPresenter;
+import com.example.administrator.newsdemo.presenter.contract.MainContract;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View{
     @BindView(R.id.textview)
     TextView textView;
 
@@ -20,9 +21,10 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    protected MainPresenter getPresenter() {
         return new MainPresenter();
     }
+
 
     @Override
     public void showError(String msg) {
