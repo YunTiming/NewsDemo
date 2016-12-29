@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 
 import com.example.administrator.newsdemo.app.App;
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
 
@@ -14,17 +16,22 @@ import me.yokeyword.fragmentation.SupportActivity;
  */
 
 public abstract class BaseActivity<T extends BasePresenter> extends SupportActivity implements BaseView {
-    protected  T mPresenter;
+    @Inject
+    protected T mPresenter;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
         ButterKnife.bind(this);
-        mPresenter=getPresenter();
+        mPresenter = getPresenter();
         mPresenter.attachView(this);
 //        App.getInstance().addActivity(this);
     }
 
     protected abstract int getLayout();
+
     protected abstract T getPresenter();
+
+    protected abstract void initInject();
 }
