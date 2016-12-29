@@ -22,7 +22,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends SupportActiv
         ButterKnife.bind(this);
         mPresenter=getPresenter();
         mPresenter.attachView(this);
-        App.getInstance().addActivity(this);
+//        App.getInstance().addActivity(this);
     }
 
     protected abstract int getLayout();

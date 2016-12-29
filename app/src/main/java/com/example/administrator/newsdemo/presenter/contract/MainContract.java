@@ -9,11 +9,11 @@ import com.example.administrator.newsdemo.base.BaseView;
 
 public interface MainContract {
 
-    interface  View extends BaseView{
-
+    interface View extends BaseView {
+        void showText(String string);
     }
 
-    interface Presenter extends BasePresenter<View>{
+    interface Presenter extends BasePresenter<View> {
 
     }
 }

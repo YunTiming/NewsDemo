@@ -35,4 +35,9 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public void useNightMode(boolean isNight) {
 
     }
+
+    @Override
+    public void showText(String string) {
+        textView.setText(string);
+    }
 }
