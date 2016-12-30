@@ -18,6 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+//    // 指定编译版本
+//    compileOptions{
+//        targetCompatibility = '1.7'
+//        sourceCompatibility = '1.7'
+//    }
 }
 
 dependencies {
@@ -36,4 +41,6 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
 
     compile 'com.google.dagger:dagger:2.8'
+    apt 'com.google.dagger:dagger-compiler:2.8'
+
 }

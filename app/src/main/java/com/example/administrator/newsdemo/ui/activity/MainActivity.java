@@ -6,6 +6,8 @@ import android.widget.TextView;
 import com.example.administrator.newsdemo.R;
 import com.example.administrator.newsdemo.base.BaseActivity;
 import com.example.administrator.newsdemo.base.BasePresenter;
+import com.example.administrator.newsdemo.inject.component.DaggerActivityComponent;
+import com.example.administrator.newsdemo.inject.module.MainActivityModule;
 import com.example.administrator.newsdemo.presenter.MainPresenter;
 import com.example.administrator.newsdemo.presenter.contract.MainContract;
 
@@ -22,8 +24,13 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     protected MainPresenter getPresenter() {
-        return new MainPresenter();
+        return new MainPresenter(this);
     }
+
+//    @Override
+//    protected void initInject() {
+//        DaggerActivityComponent.builder().mainActivityModule(new MainActivityModule(this)).build().inject(this);
+//    }
 
 
     @Override

@@ -16,7 +16,7 @@ import me.yokeyword.fragmentation.SupportActivity;
  */
 
 public abstract class BaseActivity<T extends BasePresenter> extends SupportActivity implements BaseView {
-    @Inject
+//    @Inject
     protected T mPresenter;
 
     @Override
@@ -24,8 +24,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends SupportActiv
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
         ButterKnife.bind(this);
+//        initInject();
         mPresenter = getPresenter();
-        mPresenter.attachView(this);
+//        mPresenter.attachView(this);
 //        App.getInstance().addActivity(this);
     }
 
@@ -33,5 +34,5 @@ public abstract class BaseActivity<T extends BasePresenter> extends SupportActiv
 
     protected abstract T getPresenter();
 
-    protected abstract void initInject();
+//    protected abstract void initInject();
 }

@@ -6,7 +6,7 @@ package com.example.administrator.newsdemo.base;
  */
 
 public interface BasePresenter<T extends BaseView> {
-    void attachView(T view);
+//    void attachView(T view);
 
     void detachView();
 }
