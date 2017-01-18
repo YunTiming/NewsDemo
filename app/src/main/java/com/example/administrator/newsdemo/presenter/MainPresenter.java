@@ -14,12 +14,11 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  * Created by Administrator on 2016/12/27.
  */
 
-public class MainPresenter implements MainContract.Presenter {
+public class MainPresenter extends RxPresenter<MainContract.View> implements MainContract.Presenter {
 
-    MainContract.View mView;
+//    MainContract.View mView;
 
-    public MainPresenter(MainContract.View view) {
-        this.mView = view;
+    public MainPresenter() {
 //        OkHttpClient
         Retrofit retrofit = new Retrofit.Builder()  //01:获取Retrofit对象
                 .baseUrl(ZhihuApi.HOST) //02采用链式结构绑定Base url
@@ -32,7 +31,7 @@ public class MainPresenter implements MainContract.Presenter {
 
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-//                System.out.println(response.body().toString());
+                System.out.println(response.body().toString());
                 mView.showText(response.body().toString());
             }
 
@@ -44,9 +43,4 @@ public class MainPresenter implements MainContract.Presenter {
 
     }
 
-
-    @Override
-    public void detachView() {
-        this.mView = null;
-    }
 }

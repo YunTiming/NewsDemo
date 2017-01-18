@@ -22,6 +22,6 @@ public class MainActivityModule {
 
     @Provides
     MainPresenter getBasePresenter() {
-        return new MainPresenter(activity);
+        return new MainPresenter();
     }
 }

@@ -5,6 +5,7 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 
 import com.example.administrator.newsdemo.app.App;
+import com.example.administrator.newsdemo.presenter.RxPresenter;
 
 import javax.inject.Inject;
 
@@ -15,7 +16,7 @@ import me.yokeyword.fragmentation.SupportActivity;
  * Created by Administrator on 2016/12/27.
  */
 
-public abstract class BaseActivity<T extends BasePresenter> extends SupportActivity implements BaseView {
+public abstract class BaseActivity<T extends RxPresenter> extends SupportActivity implements BaseView {
 //    @Inject
     protected T mPresenter;
 
@@ -26,7 +27,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends SupportActiv
         ButterKnife.bind(this);
 //        initInject();
         mPresenter = getPresenter();
-//        mPresenter.attachView(this);
+        mPresenter.attachView(this);
 //        App.getInstance().addActivity(this);
     }
 
